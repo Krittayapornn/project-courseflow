@@ -45,7 +45,7 @@ function UserMycourse() {
         "https://s3-alpha-sig.figma.com/img/071b/5571/bb2cadcac1a0d10deaf378ba87608401?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bFE1VZAYyb8HyBYgrEnOssppMoxwXxzYt~3Hy6JAuCeWTfxIAA19xtQTSIUVUUk1eDTmIxBQFjW1ZqY2BjcGTtfbQTHDWG2sv7OCm3MqJHerpVpYT9NupwOft0Zs9CrE3JHIwXiDYIMKnqx5XbGjGinijmy7hevIFvYd9Us2y7QTUOHbIkJUkOdxKPuw3xmobeswVNE1pC6FDzdam3VvvpfIjYkKppxnbM~dysKWGKEh1Zt-0uY4F2rdDJDpZaNGRw5C9Z6V2vzB-k8Q~x3-7LILJW4G3YqAmotq7V4rI9QKF6v6naQblieslLeOVMZQ~krjnBa3yTS7sFwXTVX8xw__",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       lessonCount: 6,
-      hours: 6,
+      hours: 5,
     },
   ]);
 
