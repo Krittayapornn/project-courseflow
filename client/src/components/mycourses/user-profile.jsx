@@ -3,7 +3,7 @@ import React from "react";
 function UserProfile() {
   return (
     <div>
-      <div className="shadow-shadow2 w-full h-[8rem]  bg-white flex flex-col justify-center items-center pb-3 fixed bottom-0 lg:left-[16rem] lg:fixed lg:w-[357px] lg:h-[396px] lg:top-[16rem] lg:rounded-xl">
+      <div className="shadow-xl w-full h-[8rem]  bg-white flex flex-col justify-center items-center pb-3 fixed bottom-0 lg:left-[16rem] lg:fixed lg:w-[357px] lg:h-[396px] lg:top-[16rem] lg:rounded-xl">
         <div className="flex gap-3 pr-[110px] mr-8 lg:flex-col lg:justify-center lg:items-center lg:pr-0 lg:mr-0 lg:mb-5">
           <img
             className="object-cover w-[40px] h-[40px] border rounded-full m-4 lg:w-[120px] lg:h-[120px] lg:m-0"

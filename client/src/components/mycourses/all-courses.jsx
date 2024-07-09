@@ -2,7 +2,7 @@ function CourseCard({ photo, title, description, lessonCount, hours }) {
   return (
     <>
       <div>
-        <div className="flex flex-col gap-7 shadow-shadow1">
+        <div className="flex flex-col gap-7 shadow-xl">
           <div className=" bg-white pb-3 rounded-lg w-[357px]">
             <div className="text-black">
               <img
