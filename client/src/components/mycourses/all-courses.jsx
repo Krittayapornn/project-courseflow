@@ -1,3 +1,5 @@
+import { BookOpenIcon, ClockIcon } from "@heroicons/react/24/outline";
+
 function CourseCard({ photo, title, description, lessonCount, hours }) {
   return (
     <>
@@ -16,8 +18,11 @@ function CourseCard({ photo, title, description, lessonCount, hours }) {
                 {description}
               </p>
             </div>
-            <div className="text-Gray-700 text-Body3 pt-4 px-4 border-t border-Gray-400">
-              {`${lessonCount} Lesson`} <span>{`${hours} Hours`}</span>
+            <div className="text-Gray-700 text-Body3 pt-4 px-4 border-t border-Gray-400 flex gap-2">
+              <BookOpenIcon className="size-5 text-Blue-400" />
+              {`${lessonCount} Lesson`}
+              <ClockIcon className="size-5 text-Blue-400" />
+              <span>{`${hours} Hours`}</span>
             </div>
           </div>
         </div>
