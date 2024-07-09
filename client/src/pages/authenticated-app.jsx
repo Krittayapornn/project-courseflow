@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
 import Login from "./non-authorized/loginpage";
 import Coursedetail from "./non-authorized/coursedetail";
 import HomePage from "./non-authorized/homepage";
