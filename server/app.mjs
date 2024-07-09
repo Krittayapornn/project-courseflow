@@ -33,6 +33,17 @@ app.get("/users", async (req, res) => {
   }
 });
 
+// Test get course
+app.get("/course", async (req, res) => {
+  let result;
+  try {
+    result = await client.query(`select * from courses`);
+    res.status(200).json(result.rows);
+  } catch {
+    res.status(500).json({ message: `Internal Server Error` });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running at ${port} 🚀`);
 });
