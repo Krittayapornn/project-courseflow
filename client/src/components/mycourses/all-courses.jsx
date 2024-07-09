@@ -3,10 +3,10 @@ import { BookOpenIcon, ClockIcon } from "@heroicons/react/24/outline";
 function CourseCard({ photo, title, description, lessonCount, hours }) {
   return (
     <>
-      <div>
+      <div className="z-0">
         <div className="flex flex-col gap-7 shadow-xl">
           <div className=" bg-white pb-3 rounded-lg w-[357px]">
-            <div className="text-black">
+            <div className="text-black font-medium">
               <img
                 className="object-cover w-[357px] h-[240px] border rounded-t-lg"
                 src={photo}
