@@ -1,11 +1,7 @@
-function Login (){
-    return (
-        <div>
-            <h1 className="text-red-500">
-                loginPage
-            </h1>
-        </div>
-    )
+import React from "react";
+
+function loginpage() {
+  return <div></div>;
 }
 
-export default Login;
+export default loginpage;
