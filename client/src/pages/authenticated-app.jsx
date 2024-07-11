@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./non-authorized/loginpage";
 import Coursedetail from "./non-authorized/coursedetail";
 import HomePage from "./non-authorized/homepage";
@@ -14,8 +15,10 @@ function AuthenticatedApp() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/coursedetail" element={<Coursedetail />} />
-        <Route path="/login/admin" element={<LoginAdmin />} />
-        <Route path="/admin/addcourse/" element={<AddCourseAdmin />} />
+        <Route path="/admin/login" element={<LoginAdmin />} />
+        <Route path="/admin/addcourse" element={<AddCourseAdmin />} />
+        {/* Test path */}
+        <Route path="/user/my_course" element={<UserMycourse />} />
       </Routes>
     </div>
   );
