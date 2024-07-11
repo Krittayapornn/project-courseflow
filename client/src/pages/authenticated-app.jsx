@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./non-authorized/loginpage";
 import Coursedetail from "./non-authorized/coursedetail";
 import HomePage from "./non-authorized/homepage";
@@ -28,7 +29,10 @@ function AuthenticatedApp() {
           path="/user/confirmationcourse"
           element={<ConfirmationCourse />}
         />
-        <Route path="/user/coursedetail/desire" element={<UserDesireCoursedetail />} />
+        <Route
+          path="/user/coursedetail/desire"
+          element={<UserDesireCoursedetail />}
+        />
         <Route path="/user/startlearning" element={<StartLearning />} />
         <Route path="/modal" element={<Modal />} />
         <Route path="/userhomepage" element={<Userhomepage />} />
@@ -39,7 +43,5 @@ function AuthenticatedApp() {
     </div>
   );
 }
-
-
 
 export default AuthenticatedApp;
