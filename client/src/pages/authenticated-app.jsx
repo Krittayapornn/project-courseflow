@@ -6,6 +6,7 @@ import LoginAdmin from "./admin/login-admin";;
 import AddCourseAdmin from "./admin/addcourse-admin";
 import Register from "./non-authorized/registerpage";;
 import UserMycourse from "./authorized/user-mycourse";
+import UserMycourse from "./authorized/user-mycourse";
 
 function AuthenticatedApp() {
   return (
