@@ -125,7 +125,7 @@ function UserMycourse() {
       </div>
       {/* SVG section for bg */}
       <Navbarnonuser />
-      <div className="realative -mb-[26rem] ">
+      <div className="realative md:-mb-[26rem] ">
         <div className="mt-[5rem] mb-4 lg:ml-[5rem] z-20 flex flex-col justify-center items-center">
           <p className="text-black text-Headline2 mb-9 font-medium bg-white px-2">
             My Courses
