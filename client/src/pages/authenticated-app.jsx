@@ -13,6 +13,7 @@ import ConfirmationCourse from "./authorized/user-confirmationcourse";
 import UserDesireCoursedetail from "./authorized/user-desirecoursedetail";
 import StartLearning from "./authorized/user-courselearning";
 import UserCoursedetail from "./authorized/user-coursedetail";
+import UserMycourse from "./authorized/user-mycourse";
 
 function AuthenticatedApp() {
   return (
@@ -38,6 +39,7 @@ function AuthenticatedApp() {
         <Route path="/usercourse" element={<Usercourse />} />
         <Route path="/login/admin" element={<LoginAdmin />} />
         <Route path="/admin/addcourse/" element={<AddCourseAdmin />} />
+        <Route path="/user/my_course" element={<UserMycourse />} />
       </Routes>
     </div>
   );

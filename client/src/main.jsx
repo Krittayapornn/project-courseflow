@@ -5,11 +5,9 @@ import "./index.css";
 import { ChakraBaseProvider } from "@chakra-ui/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
-      <ChakraBaseProvider>
-        <App />
-      </ChakraBaseProvider>
-    </React.StrictMode>
-  )
+  <React.StrictMode>
+    <ChakraBaseProvider>
+      <App />
+    </ChakraBaseProvider>
+  </React.StrictMode>
 );
