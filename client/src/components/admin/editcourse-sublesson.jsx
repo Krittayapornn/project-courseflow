@@ -17,10 +17,9 @@ function EditCourseSubLessonTable({ createCourse }) {
   }, []);
 
   const fetchSubLesson = async () => {
-
     try {
       const res = await axios.get(
-        `https://project-courseflow-server.vercel.app/admin/sublessonlist/${param.id}`
+        `http://localhost:4000/admin/sublessonlist/${param.id}`
       );
       setSublesson(res.data);
     } catch (error) {
@@ -31,9 +30,7 @@ function EditCourseSubLessonTable({ createCourse }) {
   //Delete lesson
   const deleteLesson = async (id, index) => {
     try {
-      await axios.delete(
-        `https://project-courseflow-server.vercel.app/admin/lesson/${id}`
-      );
+      await axios.delete(`http://localhost:4000/admin/lesson/${id}`);
       setSublesson(subLesson.toSpliced(index, 1));
     } catch (error) {
       console.error("Error deleting lesson:", error);
@@ -47,10 +44,9 @@ function EditCourseSubLessonTable({ createCourse }) {
   }, []);
 
   const fetchCourses = async () => {
-
     try {
       const res = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/list/${param.id}`
+        `http://localhost:4000/courses/list/${param.id}`
       );
       setCourses(res.data.data);
     } catch (error) {
@@ -59,11 +55,8 @@ function EditCourseSubLessonTable({ createCourse }) {
   };
 
   const deleteCourse = async () => {
-
     try {
-      await axios.delete(
-        `https://project-courseflow-server.vercel.app/courses/${param.id}`
-      );
+      await axios.delete(`http://localhost:4000/courses/${param.id}`);
       console.log("Course deleted successfully");
       navigate("/admin/courselist");
     } catch (error) {
@@ -88,7 +81,7 @@ function EditCourseSubLessonTable({ createCourse }) {
 
     try {
       await axios.put(
-        `https://project-courseflow-server.vercel.app/admin/moduleorderlist/${param.id}`,
+        `http://localhost:4000/admin/moduleorderlist/${param.id}`,
         updatedSubLesson
       );
     } catch {}

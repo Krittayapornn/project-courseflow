@@ -52,7 +52,7 @@ function AssignmentListTable() {
     setLoading(true);
     try {
       const res = await axios.get(
-        "https://project-courseflow-server.vercel.app/admin/assignments"
+        "http://localhost:4000/admin/assignments"
       );
       setAssignments(res.data);
     } catch (error) {
@@ -65,7 +65,7 @@ function AssignmentListTable() {
   const deleteAssignment = async (id) => {
     try {
       await axios.delete(
-        `https://project-courseflow-server.vercel.app/admin/assignments/${id}`
+        `http://localhost:4000/admin/assignments/${id}`
       );
       fetchAssignments();
       setOpenModal(false);

@@ -13,7 +13,7 @@
 //       const fetchUser = async () => {
 //         try {
 //           const response = await axios.get(
-//             `https://project-courseflow-server.vercel.app/users/profile`
+//             `http://localhost:4000/users/profile`
 //           );
 //           setUser(response.data);
 //         } catch (error) {

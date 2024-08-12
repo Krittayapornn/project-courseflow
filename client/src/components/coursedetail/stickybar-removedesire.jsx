@@ -24,13 +24,13 @@ function StickybarRemoveDesire() {
   useEffect(() => {
     const getCourses = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/${params.Id}`
+        `http://localhost:4000/courses/${params.Id}`
       );
       setCoursedetail(result.data.data);
     };
     const subscribedCourses = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
+        `http://localhost:4000/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
       );
       setSubscribedCourses(result.data);
     };
@@ -40,7 +40,7 @@ function StickybarRemoveDesire() {
 
   const postSubscribe = async () => {
     await axios.post(
-      `https://project-courseflow-server.vercel.app/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
+      `http://localhost:4000/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
     ),
       {};
     handleCloseModal();
@@ -63,9 +63,7 @@ function StickybarRemoveDesire() {
   };
 
   const deleteDesireCourse = async () => {
-    await axios.delete(
-      `https://project-courseflow-server.vercel.app/courses/desire/${params.Id}`
-    );
+    await axios.delete(`http://localhost:4000/courses/desire/${params.Id}`);
     navigate("/user/desire");
   };
   const handleRemoveDesire = (event) => {

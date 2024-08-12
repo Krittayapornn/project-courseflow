@@ -12,10 +12,8 @@ function SectionDesireCourses() {
 
   const getDesirecourse = async () => {
     setLoading(true); // Start the spinner
-    try{
-      const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/desire`
-      );
+    try {
+      const result = await axios.get(`http://localhost:4000/courses/desire`);
       setDesireCourse(result.data);
     } finally {
       setLoading(false); // Stop the spinner

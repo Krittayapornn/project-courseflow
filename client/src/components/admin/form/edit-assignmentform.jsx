@@ -27,7 +27,7 @@ function EditAssignmentForm() {
   const fetchAssignment = async () => {
     try {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/admin/assignments/${id}`
+        `http://localhost:4000/admin/assignments/${id}`
       );
       console.log(result);
       const assignmentData = result.data.data;
@@ -44,9 +44,7 @@ function EditAssignmentForm() {
   };
   const fetchCourses = async () => {
     try {
-      const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses`
-      );
+      const result = await axios.get(`http://localhost:4000/courses`);
       setCourses(result.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
@@ -55,9 +53,7 @@ function EditAssignmentForm() {
 
   const fetchLessons = async () => {
     try {
-      const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/admin/lesson`
-      );
+      const result = await axios.get(`http://localhost:4000/admin/lesson`);
       console.log(result);
       setLessons(result.data);
     } catch (error) {
@@ -67,12 +63,9 @@ function EditAssignmentForm() {
 
   const fetchSubLessons = async (moduleid) => {
     try {
-      const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/admin/sublesson`,
-        {
-          params: { moduleid },
-        }
-      );
+      const result = await axios.get(`http://localhost:4000/admin/sublesson`, {
+        params: { moduleid },
+      });
       setSubLessons(result.data);
     } catch (error) {
       console.error("Error fetching sublessons:", error);
@@ -107,7 +100,7 @@ function EditAssignmentForm() {
       console.log("Payload:", updatedAssignment);
 
       const response = await axios.put(
-        `https://project-courseflow-server.vercel.app/admin/assignments/${id}`,
+        `http://localhost:4000/admin/assignments/${id}`,
         updatedAssignment
       );
 
@@ -134,9 +127,7 @@ function EditAssignmentForm() {
 
   const deleteAssignment = async (id) => {
     try {
-      await axios.delete(
-        `https://project-courseflow-server.vercel.app/admin/assignments/${id}`
-      );
+      await axios.delete(`http://localhost:4000/admin/assignments/${id}`);
       navigate("/admin/assignmentlist");
       setOpenModal(false);
     } catch (error) {
@@ -160,7 +151,7 @@ function EditAssignmentForm() {
 
   return (
     <>
-     {loading && <PendingSvg text="Edit Assignment..." />}
+      {loading && <PendingSvg text="Edit Assignment..." />}
       <div className="w-full">
         <nav className="order-b-2 py-2 border-gray-300 bg-white text-base text-slate-800 flex flex-row justify-center items-center">
           <div className="flex items-center space-x-2 ml-8 mb-2 md:mb-0 flex-1 ">

@@ -17,7 +17,7 @@ function UserMycourse() {
   const getAllCourses = async () => {
     try {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
+        `http://localhost:4000/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
       );
       setCourses(result.data);
     } catch (error) {

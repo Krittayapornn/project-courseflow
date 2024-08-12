@@ -28,7 +28,7 @@ function EditSubLessonFrom() {
   const getLesson = async () => {
     try {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/admin/lesson/${params.lessonId}`
+        `http://localhost:4000/admin/lesson/${params.lessonId}`
       );
       setLessons(result.data.data[0]);
     } catch (error) {
@@ -43,7 +43,7 @@ function EditSubLessonFrom() {
   const getSublesson = async () => {
     try {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/admin/sublesson/${params.lessonId}`
+        `http://localhost:4000/admin/sublesson/${params.lessonId}`
       );
       getVideoSublesson(result.data.data);
       setSubLessons(result.data.data);
@@ -54,16 +54,14 @@ function EditSubLessonFrom() {
 
   ///modal
   const deleteLesson = async () => {
-    await axios.delete(
-      `https://project-courseflow-server.vercel.app/admin/lesson/${params.lessonId}`
-    );
+    await axios.delete(`http://localhost:4000/admin/lesson/${params.lessonId}`);
     navigate("/admin/courselist");
     handleCloseModal();
   };
   const deleteSublesson = async (sublessonid) => {
     try {
       await axios.delete(
-        `https://project-courseflow-server.vercel.app/admin/sublesson/${sublessonid}`
+        `http://localhost:4000/admin/sublesson/${sublessonid}`
       );
       getSublesson();
     } catch (error) {
@@ -88,7 +86,7 @@ function EditSubLessonFrom() {
   const postSublesson = async () => {
     try {
       const sublesson = await axios.post(
-        `https://project-courseflow-server.vercel.app/admin/sublesson/${params.lessonId}`
+        `http://localhost:4000/admin/sublesson/${params.lessonId}`
       );
       setSubLessons([...subLessons, sublesson.data.data]);
       setVideoFiles([...videoFiles, ""]);
@@ -102,7 +100,7 @@ function EditSubLessonFrom() {
     const editSublesson = newSublesson;
     try {
       await axios.put(
-        `https://project-courseflow-server.vercel.app/admin/sublessondrag/${params.lessonId}`,
+        `http://localhost:4000/admin/sublessondrag/${params.lessonId}`,
         [editSublesson]
       );
     } catch (error) {
@@ -178,7 +176,7 @@ function EditSubLessonFrom() {
       const editSublesson = subLessons;
 
       const result = await axios.put(
-        `https://project-courseflow-server.vercel.app/admin/sublesson/${params.lessonId}`,
+        `http://localhost:4000/admin/sublesson/${params.lessonId}`,
         [editLesson, editSublesson, videoUrls]
       );
 

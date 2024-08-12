@@ -18,7 +18,7 @@ function AuthProvider(props) {
   const login = async ({ email, password }) => {
     try {
       const result = await axios.post(
-        "https://project-courseflow-server.vercel.app/users/login",
+        "http://localhost:4000/users/login",
         { email, password } // Pass email and password as object
       );
 
@@ -39,7 +39,7 @@ function AuthProvider(props) {
   const adminLogin = async ({ email, password }) => {
     try {
       const result = await axios.post(
-        "https://project-courseflow-server.vercel.app/admin/login",
+        "http://localhost:4000/admin/login",
         { email, password } // Pass email and password as object
       );
 
@@ -63,10 +63,7 @@ function AuthProvider(props) {
 
   //===========Register
   const register = async (data) => {
-    await axios.post(
-      "https://project-courseflow-server.vercel.app/users/register",
-      data
-    );
+    await axios.post("http://localhost:4000/users/register", data);
     navigate("/login");
   };
 

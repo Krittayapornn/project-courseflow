@@ -15,7 +15,7 @@ function NavbarEditCourse({ text, handleSubmit }) {
   const getCourseData = async () => {
     try {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/list/${id}`
+        `http://localhost:4000/courses/list/${id}`
       );
 
       setCourseData(result.data.data[0]);
@@ -33,8 +33,8 @@ function NavbarEditCourse({ text, handleSubmit }) {
       <nav className="order-b-2 py-2 border-gray-300 bg-white text-base text-slate-800 flex flex-row justify-center items-center">
         <div className="flex items-center space-x-2 ml-8 mb-2 md:mb-0 flex-1 ">
           <span className="flex items-center">
-          <Link to="/admin/courselist">
-            <img src={arrowback} className="inline-block mr-2" />
+            <Link to="/admin/courselist">
+              <img src={arrowback} className="inline-block mr-2" />
             </Link>
             <span>Course</span>
           </span>

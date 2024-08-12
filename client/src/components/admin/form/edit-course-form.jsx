@@ -46,9 +46,8 @@ function EditCourseForm() {
 
   useEffect(() => {
     axios
-      .get(`https://project-courseflow-server.vercel.app/courses/list/${id}`)
+      .get(`http://localhost:4000/courses/list/${id}`)
       .then((res) => {
-
         setInputData(res.data.data[0]);
       })
       .catch((err) => {
@@ -60,8 +59,6 @@ function EditCourseForm() {
     event.preventDefault();
     setLoading(true); // Start the spinner
     try {
-
-
       let imageUrl = inputData.imagefile;
       let videoUrl = inputData.videofile;
       let pdfUrl = inputData.pdffile;
@@ -86,11 +83,7 @@ function EditCourseForm() {
         updateddate: new Date().toISOString(),
       };
 
-
-      await axios.put(
-        `https://project-courseflow-server.vercel.app/courses/${id}`,
-        updatedData
-      );
+      await axios.put(`http://localhost:4000/courses/${id}`, updatedData);
       setLoading(false);
       setAlert({
         message: "Course update successfully",
@@ -157,8 +150,6 @@ function EditCourseForm() {
       setPreviewUrl(fileReader.result);
     };
     fileReader.readAsDataURL(selectedFile);
-
-
   };
 
   const handlePdfFileChange = (e) => {
@@ -252,8 +243,6 @@ function EditCourseForm() {
       setVideoPreviewUrl(fileReader.result);
     };
     fileReader.readAsDataURL(selectedFile);
-
-
   };
 
   // Delete preview image
@@ -296,10 +285,7 @@ function EditCourseForm() {
         pdffile: "",
       };
 
-      await axios.put(
-        `https://project-courseflow-server.vercel.app/courses/${id}`,
-        updatedData
-      );
+      await axios.put(`http://localhost:4000/courses/${id}`, updatedData);
 
       if (error) {
         throw error;
@@ -311,7 +297,7 @@ function EditCourseForm() {
       setAlert({ message: "Error delete file", severity: "error" });
       setOpen(true);
     }
-  };
+  }
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;

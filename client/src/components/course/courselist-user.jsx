@@ -22,15 +22,13 @@ function CourselistUser() {
 
   const getCourseData = async () => {
     try {
-      const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses`
-      );
+      const result = await axios.get(`http://localhost:4000/courses`);
       console.log(result);
       setCourse(result.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -44,7 +42,7 @@ function CourselistUser() {
 
   const handleNavigate = () => {
     navigate("/courselistuser");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const gradientStyle = {
@@ -122,7 +120,7 @@ function CourselistUser() {
                   {course.coursename}
                 </h1>
                 <p className="sm:text-black sm:text-sm font-normal">
-                  {course.description.length > 85 
+                  {course.description.length > 85
                     ? `${course.description.substring(0, 85)}...`
                     : course.description}
                 </p>

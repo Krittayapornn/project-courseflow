@@ -11,6 +11,8 @@ import submissionRouter from "./routes/submission.mjs";
 import subscriptionRouter from "./routes/subscriptions.mjs";
 import assignmentRouter from "./routes/assignments.mjs";
 import authenticateToken from "./middlewares/authentication.mjs";
+import swaggerUi from "swagger-ui-express";
+import { loadSwaggerDocument } from "./utils/swagger.mjs";
 
 const app = express();
 app.use(express.json());
@@ -20,6 +22,13 @@ app.use(
   })
 );
 const port = process.env.PORT || 4000;
+
+async function setupSwagger() {
+  const swaggerDocument = await loadSwaggerDocument();
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+}
+
+setupSwagger();
 
 //Connection test
 async function connect() {

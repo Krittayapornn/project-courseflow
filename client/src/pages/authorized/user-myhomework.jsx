@@ -22,7 +22,7 @@ function UserMyHomework() {
   const getAllSubmissions = async () => {
     try {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/submissions/user/${userId.UserIdFromLocalStorage}`
+        `http://localhost:4000/submissions/user/${userId.UserIdFromLocalStorage}`
       );
       console.log("Data", result.data);
       setSubmissions(result.data);
@@ -37,7 +37,7 @@ function UserMyHomework() {
   const handleSubmit = async (assignmentId, newAnswer) => {
     try {
       await axios.put(
-        `https://project-courseflow-server.vercel.app/submissions/user/${userId.UserIdFromLocalStorage}/assignment/${assignmentId}/submit`,
+        `http://localhost:4000/submissions/user/${userId.UserIdFromLocalStorage}/assignment/${assignmentId}/submit`,
         { answer: newAnswer }
       );
       getAllSubmissions();

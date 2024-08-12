@@ -12,10 +12,10 @@ function UserProfileCard() {
     try {
       const [userResult, courseCountResult] = await Promise.all([
         axios.get(
-          `https://project-courseflow-server.vercel.app/profiles/${userId.UserIdFromLocalStorage}`
+          `http://localhost:4000/profiles/${userId.UserIdFromLocalStorage}`
         ),
         axios.get(
-          `https://project-courseflow-server.vercel.app/courses/user/${userId.UserIdFromLocalStorage}/count/`
+          `http://localhost:4000/courses/user/${userId.UserIdFromLocalStorage}/count/`
         ),
       ]);
 

@@ -12,17 +12,17 @@ function ModalCoursedetailmobile() {
   const [subscribedCourses, setSubscribedCourses] = useState([]);
   const [alert, setAlert] = useState({ message: "", severity: "" });
   const [open, setOpen] = useState(false);
- 
+
   useEffect(() => {
     const getCourses = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/list/${params.Id}`
+        `http://localhost:4000/courses/list/${params.Id}`
       );
       setCourses(result.data.data[0]);
     };
     const subscribedCourses = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
+        `http://localhost:4000/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
       );
       setSubscribedCourses(result.data);
     };
@@ -32,7 +32,7 @@ function ModalCoursedetailmobile() {
 
   const postSubscribe = async () => {
     await axios.post(
-      `https://project-courseflow-server.vercel.app/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
+      `http://localhost:4000/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
     ),
       {};
     navigate(`/user/subscribe/coursedetail/${params.Id}`);
@@ -99,11 +99,7 @@ function ModalCoursedetailmobile() {
           </div>
         </div>
       </div>
-      <CustomSnackbar
-        open={open}
-        handleClose={handleClose}
-        alert={alert}
-      />
+      <CustomSnackbar open={open} handleClose={handleClose} alert={alert} />
     </div>
   );
 }

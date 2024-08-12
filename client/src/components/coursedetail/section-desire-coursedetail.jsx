@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/authentication";
 import axios from "axios";
-import ModalCoursedetaildesktop  from "../../components/coursedetail/modacoursedetaill.desktop";
+import ModalCoursedetaildesktop from "../../components/coursedetail/modacoursedetaill.desktop";
 import CustomSnackbar from "../shared/custom-snackbar";
 import PendingSvg from "../shared/pending-svg";
 
@@ -18,16 +18,16 @@ function SectionDesireCourseDetail() {
   const [selectedCourseId, setSelectedCourseId] = useState(null);
   const [expandedModuleId, setExpandedModuleId] = useState(null);
   const [subscribedCourses, setSubscribedCourses] = useState([]);
-  const [alert, setAlert] = useState({ message: "", severity: "" }); 
-  const [open, setOpen] = useState(false); 
+  const [alert, setAlert] = useState({ message: "", severity: "" });
+  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true) // Start the spinner
+    setLoading(true); // Start the spinner
     const getCourses = async () => {
-      try{
+      try {
         const result = await axios.get(
-          `https://project-courseflow-server.vercel.app/courses/${params.Id}`
+          `http://localhost:4000/courses/${params.Id}`
         );
         setCoursedetail(result.data.data);
       } finally {
@@ -36,13 +36,13 @@ function SectionDesireCourseDetail() {
     };
     const getModules = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/modules/${params.Id}`
+        `http://localhost:4000/courses/modules/${params.Id}`
       );
       setModules(result.data.data);
     };
     const subscribedCourses = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
+        `http://localhost:4000/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
       );
       setSubscribedCourses(result.data);
     };
@@ -52,9 +52,7 @@ function SectionDesireCourseDetail() {
   }, []);
 
   const deleteDesireCourse = async () => {
-    await axios.delete(
-      `https://project-courseflow-server.vercel.app/courses/desire/${params.Id}`
-    );
+    await axios.delete(`http://localhost:4000/courses/desire/${params.Id}`);
     navigate("/user/desire");
   };
   const handleRemoveDesire = (event) => {
@@ -63,7 +61,7 @@ function SectionDesireCourseDetail() {
   };
   const postSubscribe = async () => {
     await axios.post(
-      `https://project-courseflow-server.vercel.app/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
+      `http://localhost:4000/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
     ),
       {};
     handleCloseModal();
@@ -120,7 +118,7 @@ function SectionDesireCourseDetail() {
     }
     setOpen(false);
   };
-  
+
   return (
     <div>
       {/* Loading Section */}
@@ -271,18 +269,14 @@ function SectionDesireCourseDetail() {
               </div>
             </div>
           </aside>
-          <ModalCoursedetaildesktop 
+          <ModalCoursedetaildesktop
             open={openModal}
             onClose={handleCloseModal}
             onConfirm={handleConfirmSubscribe}
           />
         </div>
       </section>
-      <CustomSnackbar
-        open={open}
-        handleClose={handleClose}
-        alert={alert}
-      />
+      <CustomSnackbar open={open} handleClose={handleClose} alert={alert} />
     </div>
   );
 }

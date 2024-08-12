@@ -10,9 +10,7 @@ function SectionOtherCourse() {
   const specificIDs = [params.Id];
 
   const getOtherCourse = async () => {
-    const result = await axios.get(
-      `https://project-courseflow-server.vercel.app/courses`
-    );
+    const result = await axios.get(`http://localhost:4000/courses`);
     const filteredCourses = result.data.filter(
       (course) => !specificIDs.includes(course.courseid)
     );

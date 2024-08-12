@@ -21,7 +21,7 @@ function UserSectionSubscribe() {
       setLoading(true); // Start the spinner
       try {
         const result = await axios.get(
-          `https://project-courseflow-server.vercel.app/courses/${params.Id}`
+          `http://localhost:4000/courses/${params.Id}`
         );
         setCoursedetail(result.data.data);
       } finally {
@@ -30,13 +30,13 @@ function UserSectionSubscribe() {
     };
     const getModules = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/modules/${params.Id}`
+        `http://localhost:4000/courses/modules/${params.Id}`
       );
       setModules(result.data.data);
     };
     const getPdffile = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/list/${params.Id}`
+        `http://localhost:4000/courses/list/${params.Id}`
       );
       setPdfFile(result.data.data[0]);
 

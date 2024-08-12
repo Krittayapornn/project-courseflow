@@ -3,13 +3,13 @@ import { Modal } from "@mui/material";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function ModalCoursedetaildesktop({ open, onClose, onConfirm })  {
+function ModalCoursedetaildesktop({ open, onClose, onConfirm }) {
   const [courses, setCourses] = useState([]);
   const params = useParams();
   useEffect(() => {
     const getCourses = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/list/${params.Id}`
+        `http://localhost:4000/courses/list/${params.Id}`
       );
       setCourses(result.data.data[0]);
     };
@@ -49,6 +49,6 @@ function ModalCoursedetaildesktop({ open, onClose, onConfirm })  {
       </div>
     </Modal>
   );
-};
+}
 
 export default ModalCoursedetaildesktop;

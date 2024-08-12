@@ -59,27 +59,27 @@ function AddSubLessonFrom() {
     setLoading(true); // Start the spinner
     try {
       // ตรวจสอบว่า lessonName มีข้อมูลหรือไม่
-    if (!data.lessonName) {
-      setAlert({
-        message: "Please fill in the lesson name.",
-        severity: "error",
-      });
-      setOpen(true);
-      setLoading(false);
-      return;
-    }
-    // ตรวจสอบว่า subLessons แต่ละตัวมี name หรือไม่
-    for (let subLesson of data.subLessons) {
-      if (!subLesson.name) {
+      if (!data.lessonName) {
         setAlert({
-          message: "Please fill in all sub-lesson names.",
+          message: "Please fill in the lesson name.",
           severity: "error",
         });
         setOpen(true);
         setLoading(false);
         return;
       }
-    }
+      // ตรวจสอบว่า subLessons แต่ละตัวมี name หรือไม่
+      for (let subLesson of data.subLessons) {
+        if (!subLesson.name) {
+          setAlert({
+            message: "Please fill in all sub-lesson names.",
+            severity: "error",
+          });
+          setOpen(true);
+          setLoading(false);
+          return;
+        }
+      }
       // Upload videos and get URLs
       const videoUrls = await Promise.all(
         videoFiles.map((file) => uploadVideoFile(file))
@@ -91,7 +91,7 @@ function AddSubLessonFrom() {
       }));
       // Send data to backend
       await axios.post(
-        `https://project-courseflow-server.vercel.app/admin/${params.courseId}/lesson`,
+        `http://localhost:4000/admin/${params.courseId}/lesson`,
         {
           modulename: data.lessonName,
           sublessonname: data.subLessons.map((subLesson) => subLesson.name),
@@ -186,8 +186,8 @@ function AddSubLessonFrom() {
     const newVideoPreviewUrls = [...videoPreviewUrls];
 
     // Remove the file and preview URL
-    newVideoFiles.splice(index, 1,"");
-    newVideoPreviewUrls.splice(index, 1,"");
+    newVideoFiles.splice(index, 1, "");
+    newVideoPreviewUrls.splice(index, 1, "");
 
     setVideoFiles(newVideoFiles);
     setVideoPreviewUrls(newVideoPreviewUrls);
@@ -331,8 +331,7 @@ function AddSubLessonFrom() {
                             severity: "error",
                           });
                           setOpen(true);
-                        }
-                        }
+                        }}
                       >
                         Delete
                       </button>

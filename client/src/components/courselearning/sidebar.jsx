@@ -173,7 +173,7 @@
 //     const fetchData = async () => {
 //       try {
 //         const response = await axios.get(
-//           `https://project-courseflow-server.vercel.app/courseinfo/${courseid}`
+//           `http://localhost:4000/courseinfo/${courseid}`
 //         );
 //         const data = response.data;
 //         setSidebarData(data);

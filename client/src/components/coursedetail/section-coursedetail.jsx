@@ -27,7 +27,7 @@ function SectionCourseDetail() {
       setLoading(true); // Start the spinner
       try {
         const result = await axios.get(
-          `https://project-courseflow-server.vercel.app/courses/${params.Id}`
+          `http://localhost:4000/courses/${params.Id}`
         );
         setCoursedetail(result.data.data);
       } finally {
@@ -36,20 +36,18 @@ function SectionCourseDetail() {
     };
     const getModules = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/modules/${params.Id}`
+        `http://localhost:4000/courses/modules/${params.Id}`
       );
       setModules(result.data.data);
     };
     const subscribedCourses = async () => {
       const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
+        `http://localhost:4000/courses/user/${userId.UserIdFromLocalStorage}/subscribed`
       );
       setSubscribedCourses(result.data);
     };
     const getDesirecourse = async () => {
-      const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses/desire`
-      );
+      const result = await axios.get(`http://localhost:4000/courses/desire`);
       setDesireCourse(result.data);
     };
     getCourses();
@@ -60,7 +58,7 @@ function SectionCourseDetail() {
 
   const postDesireCourse = async () => {
     await axios.post(
-      `https://project-courseflow-server.vercel.app/courses/${userId.UserIdFromLocalStorage}/${params.Id}/desire`
+      `http://localhost:4000/courses/${userId.UserIdFromLocalStorage}/${params.Id}/desire`
     );
     navigate(`/user/desire/coursedetail/${params.Id}`);
   };
@@ -85,7 +83,7 @@ function SectionCourseDetail() {
 
   const postSubscribe = async () => {
     await axios.post(
-      `https://project-courseflow-server.vercel.app/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
+      `http://localhost:4000/courses/${userId.UserIdFromLocalStorage}/${params.Id}/subscribe`
     );
     handleCloseModal();
     navigate(`/user/subscribe/coursedetail/${params.Id}`);

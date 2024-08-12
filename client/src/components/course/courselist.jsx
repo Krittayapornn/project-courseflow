@@ -16,14 +16,12 @@ function Course() {
 
   const getCourseData = async () => {
     try {
-      const result = await axios.get(
-        `https://project-courseflow-server.vercel.app/courses`
-      );
+      const result = await axios.get(`http://localhost:4000/courses`);
       setCourse(result.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
